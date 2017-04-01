@@ -1,0 +1,17 @@
+{
+  "name": "aliwuyun/alidayu",
+  "type": "composer-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "fa.zeng",
+      "email": "zengfa@hotmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Aliwuyun\\Alidayu\\": "src"
+    }
+  }
+}

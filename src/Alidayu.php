@@ -73,7 +73,7 @@ class Alidayu
             $this->app_key = $config['app_key'];
             $this->app_secret = $config['app_secret'];
             $this->sandbox = $config['sandbox'];
-        } elseif (!empty($default_config = Config::get('alidayu.auth'))) {
+        } elseif (!empty($default_config = Config::get('alidayu'))) {
             $this->app_key = $default_config['app_key'];
             $this->app_secret = $default_config['app_secret'];
             $this->sandbox = $default_config['sandbox'];
@@ -125,7 +125,7 @@ class Alidayu
      * @param AlidayuContracts $request
      * @return array|false
      */
-    public  function execute(AlidayuContracts $request)
+    public  function send(AlidayuContracts $request)
     {
         $method = $request->getMethod();
         $publicParams = $this->getPublicParams();
@@ -137,7 +137,7 @@ class Alidayu
         $params['sign'] = $this->generateSign($params);
 
         // 请求数据
-        $resp = $this->curl($this->app->sandbox ? $this->api_sandbox_uri : $this->api_uri, $params);
+        $resp = $this->curl($this->sandbox ? $this->api_sandbox_uri : $this->api_uri, $params);
 
         // 解析返回
         return $this->parseRep($resp);
@@ -199,7 +199,7 @@ class Alidayu
     protected function getPublicParams()
     {
         return [
-            'app_key' => $this->app->app_key,
+            'app_key' => $this->app_key,
             'timestamp' => date('Y-m-d H:i:s'),
             'format' => $this->format,
             'v' => '2.0',
@@ -238,7 +238,7 @@ class Alidayu
             $arr[] = $k . $v;
         }
 
-        $str = $this->app->app_secret . implode('', $arr) . $this->app->app_secret;
+        $str = $this->app_secret . implode('', $arr) . $this->app_secret;
 
         return strtoupper(md5($str));
     }
@@ -259,7 +259,7 @@ class Alidayu
 
         $str = implode('', $arr);
 
-        return strtoupper(hash_hmac('md5', $str, $this->app->app_secret));
+        return strtoupper(hash_hmac('md5', $str, $this->app_secret));
     }
 
     /**
@@ -306,7 +306,7 @@ class Alidayu
         // E. 创建CLIENT对象
         $client = new self();
 
-        return call_user_func_array([$client, 'execute'], [$request]);
+        return call_user_func_array([$client, 'send'], [$request]);
     }
 
     /**

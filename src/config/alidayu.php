@@ -8,5 +8,6 @@
 
 return [
     'app_key' => '',
-    'app_secret' => ''
+    'app_secret' => '',
+    'sandbox' => false
 ];

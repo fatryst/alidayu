@@ -39,7 +39,7 @@ class AlidayuServiceProvider extends ServiceProvider
         $this->app->singleton('alidayu', function () {
             return new Alidayu();
         });
-        
+
         $this->mergeConfigFrom(
             __DIR__.'/config/alidayu.php', 'alidayu'
         );

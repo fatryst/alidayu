@@ -20,25 +20,23 @@ http://open.taobao.com/docs/api.htm?apiId=26039
 
 ```php
 <?php
-use Aliwuyun\Alidayu\Client;
-use Aliwuyun\Alidayu\App;
-use Aliwuyun\Alidayu\Requests\AlibabaAliqinFcSmsNumQuery;
 
-// 配置信息
-$config = [
-    'app_key'    => '*****',
-    'app_secret' => '************',
-];
+use Aliwuyun\Alidayu\AlibabaAliqinFcSmsNumQuery;
+use Alidayu;
 
-$client = new Client(new App($config));
-$req = new AlibabaAliqinFcSmsNumQuery;
+class TestController extends Controller
+{
+    public function query()
+    {
+        $message = (new AlibabaAliqinFcSmsNumQuery())
+            ->setBizId('123456')
+            ->setRecNum('12345678910')
+            ->setQueryDate('2017.4.1')
+            ->setCurrentPage(1)
+            ->setPageSize(10);
 
-$req->setBizId('')
-    ->setRecNum('13312311231')
-    ->setQueryDate('20160920')
-    ->setCurrentPage(1)
-    ->setPageSize(10);
-
-print_r($client->execute($req));
-?>
+        $res = Alidayu::send($message);
+        return $res;
+    }
+}
 ```

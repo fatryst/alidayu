@@ -20,28 +20,25 @@ http://open.taobao.com/docs/api.htm?apiId=25444
 
 ```php
 <?php
-use Aliwuyun\Alidayu\Client;
-use Aliwuyun\Alidayu\App;
-use Aliwuyun\Alidayu\Requests\AlibabaAliqinFcTtsNumSinglecall;
+use Aliwuyun\Alidayu\AlibabaAliqinFcTtsNumSinglecall;
+use Alidayu;
 
-// 配置信息
-$config = [
-    'app_key'    => '*****',
-    'app_secret' => '************',
-];
+class TestController extends Controller
+{
+    public function send()
+    {
+        $message = (new AlibabaAliqinFcTtsNumSinglecall())
+            ->setCalledNum('13312311231')
+            ->setTtsParam([
+                    'username' => 'admin',
+                    'time'     => date('Y-m-d'),
+                    'client'   => '阿里大于'
+                ])
+            ->setCalledShowNum('123456789')
+            ->setTtsCode('TTS_123456789');
 
-$client = new Client(new App($config));
-$req = new AlibabaAliqinFcTtsNumSinglecall;
-
-$req->setCalledNum('13312311231')
-    ->setTtsParam([
-        'username' => 'admin',
-        'time'     => date('Y-m-d'),
-        'client'   => '微网站'
-    ])
-    ->setCalledShowNum('051482043270')
-    ->setTtsCode('TTS_15230020');
-
-print_r($client->execute($req));
-?>
+        $res = Alidayu::send($message);
+        return $res;
+    }
+}
 ```

@@ -16,21 +16,18 @@ http://open.taobao.com/docs/api.htm?apiId=26305
 
 ```php
 <?php
-use Aliwuyun\Alidayu\Client;
-use Aliwuyun\Alidayu\App;
-use Aliwuyun\Alidayu\Requests\AlibabaAliqinFcFlowQuery;
+use Aliwuyun\Alidayu\AlibabaAliqinFcFlowQuery;
+use Alidayu;
 
-// 配置信息
-$config = [
-    'app_key'    => '*****',
-    'app_secret' => '************',
-];
+class TestController extends Controller
+{
+    public function send()
+    {
+        $message = (new AlibabaAliqinFcFlowQuery())
+            ->setOutId('123456');
 
-$client = new Client(new App($config));
-$req = new AlibabaAliqinFcFlowQuery;
-
-$req->setOutId('111111');
-
-print_r($client->execute($req));
-?>
+        $res = Alidayu::send($message);
+        return $res;
+    }
+}
 ```

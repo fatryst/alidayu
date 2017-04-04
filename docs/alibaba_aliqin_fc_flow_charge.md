@@ -19,23 +19,20 @@ http://open.taobao.com/docs/api.htm?apiId=26306
 
 ```php
 <?php
-use Aliwuyun\Alidayu\Client;
-use Aliwuyun\Alidayu\App;
-use Aliwuyun\Alidayu\Requests\AlibabaAliqinFcFlowCharge;
+use Aliwuyun\Alidayu\AlibabaAliqinFcFlowCharge;
+use Alidayu;
 
-// 配置信息
-$config = [
-    'app_key'    => '*****',
-    'app_secret' => '************',
-];
+class TestController extends Controller
+{
+    public function charge()
+    {
+        $message = (new AlibabaAliqinFcFlowCharge())
+            ->setPhoneNum('12345678910')
+            ->setGrade('50')
+            ->setOutRechargeId('123456');
 
-$client = new Client(new App($config));
-$req = new AlibabaAliqinFcFlowCharge;
-
-$req->setPhoneNum('13312311231')
-    ->setGrade('50')
-    ->setOutRechargeId('111111');
-
-print_r($client->execute($req));
-?>
+        $res = Alidayu::send($message);
+        return $res;
+    }
+}
 ```

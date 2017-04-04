@@ -21,24 +21,21 @@ http://open.taobao.com/docs/api.htm?apiId=25443
 
 ```php
 <?php
-use Aliwuyun\Alidayu\Client;
-use Aliwuyun\Alidayu\App;
-use Aliwuyun\Alidayu\Requests\AlibabaAliqinFcVoiceNumDoublecall;
+use Aliwuyun\Alidayu\AlibabaAliqinFcVoiceNumDoublecall;
+use Alidayu;
 
-// 配置信息
-$config = [
-    'app_key'    => '*****',
-    'app_secret' => '************',
-];
+class TestController extends Controller
+{
+    public function send()
+    {
+        $message = (new AlibabaAliqinFcVoiceNumDoublecall())
+            ->setCallerNum('12345678910')
+            ->setCallerShowNum('12345678910')
+            ->setCalledNum('12345678910')
+            ->setCalledShowNum('12345678910');
 
-$client = new Client(new App($config));
-$req = new AlibabaAliqinFcVoiceNumDoublecall;
-
-$req->setCallerNum('13312311231')
-    ->setCallerShowNum('13312311231')
-    ->setCalledNum('13312311231')
-    ->setCalledShowNum('13312311231');
-
-print_r($client->execute($req));
-?>
+        $res = Alidayu::send($message);
+        return $res;
+    }
+}
 ```

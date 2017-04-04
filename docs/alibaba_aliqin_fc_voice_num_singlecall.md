@@ -19,23 +19,20 @@ http://open.taobao.com/docs/api.htm?apiId=25445
 
 ```php
 <?php
-use Aliwuyun\Alidayu\Client;
-use Aliwuyun\Alidayu\App;
-use Aliwuyun\Alidayu\Requests\AlibabaAliqinFcVoiceNumSinglecall;
+use Aliwuyun\Alidayu\AlibabaAliqinFcVoiceNumDoublecall;
+use Alidayu;
 
-// 配置信息
-$config = [
-    'app_key'    => '*****',
-    'app_secret' => '************',
-];
+class TestController extends Controller
+{
+    public function send()
+    {
+        $message = (new AlibabaAliqinFcVoiceNumDoublecall())
+            ->setCalledNum('12345678910')
+            ->setCalledShowNum('123456')
+            ->setVoiceCode('08559b5f-0573-4e30-89ca-b82a9f4b94f8.wav');
 
-$client = new Client(new App($config));
-$req = new AlibabaAliqinFcVoiceNumSinglecall;
-
-$req->setCalledNum('13312311231')
-    ->setCalledShowNum('051482043270')
-    ->setVoiceCode('08559b5f-0573-4e30-89ca-b82a9f4b94f8.wav');
-
-print_r($client->execute($req));
-?>
+        $res = Alidayu::send($message);
+        return $res;
+    }
+}
 ```

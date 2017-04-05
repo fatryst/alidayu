@@ -77,7 +77,7 @@ class Alidayu
             $this->app_key = $default_config['app_key'];
             $this->app_secret = $default_config['app_secret'];
             $this->sandbox = $default_config['sandbox'];
-        }else{
+        } else {
             throw new Exception("阿里大于配置信息：app_key或app_secret错误");
         }
     }
@@ -125,7 +125,7 @@ class Alidayu
      * @param AlidayuContracts $request
      * @return array|false
      */
-    public  function send(AlidayuContracts $request)
+    public function send(AlidayuContracts $request)
     {
         $method = $request->getMethod();
         $publicParams = $this->getPublicParams();
@@ -146,7 +146,7 @@ class Alidayu
 
     /**
      * 设置签名方式
-     * @param string $value  签名方式，支持md5, hmac
+     * @param string $value 签名方式，支持md5, hmac
      * @return $this
      */
     public function setSignMethod($value = 'md5')
@@ -178,7 +178,7 @@ class Alidayu
     protected function parseRep($response)
     {
         if ($this->format == 'json') {
-            $resp = json_decode($response);
+            $resp = json_decode($response, true);
 
             if (false !== $resp) {
                 $resp = current($resp);

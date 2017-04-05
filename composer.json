@@ -1,18 +1,18 @@
 {
-  "name": "aliwuyun/alidayu",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "fa.zeng",
-      "email": "zengfa@hotmail.com"
+    "name": "aliwuyun/alidayu",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "fa.zeng",
+            "email": "zengfa@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aliwuyun\\Alidayu\\": "src/Alidayu/"
+        }
     }
-  ],
-  "require": {
-    "php": ">=5.4.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Aliwuyun\\Alidayu\\": "src"
-    }
-  }
 }

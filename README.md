@@ -37,7 +37,7 @@ composer require aliwuyun/alidayu
 
 ## 使用
 
-```
+```php
 <?php
 use Aliwuyun\Alidayu\Alidayu;
 use Aliwuyun\Alidayu\AlibabaAliqinFcSmsNumSend;

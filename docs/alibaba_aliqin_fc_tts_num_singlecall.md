@@ -1,6 +1,5 @@
 # 文本转语音通知
 
-`\Aliwuyun\Alidayu\Alidayu\AlibabaAliqinFcTtsNumSinglecall`
 
 ## 1. 官方文档
 
@@ -37,8 +36,7 @@ class TestController extends Controller
             ->setCalledShowNum('123456789')
             ->setTtsCode('TTS_123456789');
 
-        $res = Alidayu::send($message);
-        return $res;
+        return Alidayu::send($message);
     }
 }
 ```

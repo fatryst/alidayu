@@ -1,6 +1,5 @@
 # 流量直充查询
 
-`\Aliwuyun\Alidayu\Alidayu\AlibabaAliqinFcFlowQuery`
 
 ## 1. 官方文档
 
@@ -26,8 +25,7 @@ class TestController extends Controller
         $message = (new AlibabaAliqinFcFlowQuery())
             ->setOutId('123456');
 
-        $res = Alidayu::send($message);
-        return $res;
+        return Alidayu::send($message);
     }
 }
 ```

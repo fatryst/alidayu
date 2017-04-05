@@ -1,6 +1,5 @@
 # 短信发送记录查询
 
-`\Aliwuyun\Alidayu\Alidayu\AlibabaAliqinFcSmsNumQuery`
 
 ## 1. 官方文档
 
@@ -35,8 +34,7 @@ class TestController extends Controller
             ->setCurrentPage(1)
             ->setPageSize(10);
 
-        $res = Alidayu::send($message);
-        return $res;
+        return Alidayu::send($message);
     }
 }
 ```

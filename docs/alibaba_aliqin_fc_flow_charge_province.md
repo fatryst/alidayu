@@ -1,6 +1,5 @@
 # 流量直充分省接口
 
-`\Aliwuyun\Alidayu\Alidayu\AlibabaAliqinFcFlowChargeProvince`
 
 ## 1. 官方文档
 
@@ -31,8 +30,7 @@ class TestController extends Controller
             ->setGrade('50')
             ->setOutRechargeId('123456');
 
-        $res = Alidayu::send($message);
-        return $res;
+        return Alidayu::send($message);
     }
 }
 ```

@@ -1,6 +1,5 @@
 # 辅助方法
 
-`\Aliwuyun\Alidayu\Support`
 
 ## 1. 使用
 

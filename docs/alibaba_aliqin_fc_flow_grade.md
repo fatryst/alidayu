@@ -1,6 +1,5 @@
 # 流量直充档位表
 
-`\Aliwuyun\Alidayu\Alidayu\AlibabaAliqinFcFlowGrade`
 
 ## 1. 官方文档
 
@@ -21,8 +20,7 @@ class TestController extends Controller
 {
     public function send()
     {
-        $res = Alidayu::send(new AlibabaAliqinFcFlowGrade());
-        return $res;
+        return Alidayu::send(new AlibabaAliqinFcFlowGrade());
     }
 }
 ```

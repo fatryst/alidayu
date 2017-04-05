@@ -29,6 +29,7 @@ Alidayu SMS Service SDK for PHP
 composer require aliwuyun/alidayu
 ```
 
+##配置
 > 1. 编辑 config 文件夹下的 `app.php`文件  
 > 2. 在 `providers` 中添加 `Aliwuyun\Alidayu\AlidayuServiceProvider::class,`
 > 3. 在 `aliases` 中添加 `'Alidayu' => Aliwuyun\Alidayu\Facades\Alidayu::class,`
@@ -41,6 +42,7 @@ composer require aliwuyun/alidayu
 <?php
 use Alidayu;
 use Aliwuyun\Alidayu\AlibabaAliqinFcSmsNumSend;
+
 class AlidayuTest
 {
     public function SendSms()

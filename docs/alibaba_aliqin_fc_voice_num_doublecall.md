@@ -1,6 +1,5 @@
 # 多方通话
 
-`\Aliwuyun\Alidayu\Alidayu\AlibabaAliqinFcVoiceNumDoublecall`
 
 ## 1. 官方文档
 
@@ -34,8 +33,7 @@ class TestController extends Controller
             ->setCalledNum('12345678910')
             ->setCalledShowNum('12345678910');
 
-        $res = Alidayu::send($message);
-        return $res;
+        return Alidayu::send($message);
     }
 }
 ```

@@ -1,6 +1,5 @@
 # 语音通知
 
-`\Aliwuyun\Alidayu\Alidayu\AlibabaAliqinFcVoiceNumSinglecall`
 
 ## 1. 官方文档
 
@@ -31,8 +30,7 @@ class TestController extends Controller
             ->setCalledShowNum('123456')
             ->setVoiceCode('08559b5f-0573-4e30-89ca-b82a9f4b94f8.wav');
 
-        $res = Alidayu::send($message);
-        return $res;
+        return Alidayu::send($message);
     }
 }
 ```

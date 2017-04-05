@@ -1,6 +1,5 @@
 # 短信发送
 
-`\Aliwuyun\Alidayu\Alidayu\AlibabaAliqinFcSmsNumSend`
 
 ## 1. 官方文档
 
@@ -35,8 +34,7 @@ class TestController extends Controller
             ->setSmsFreeSignName('阿里')
             ->setSmsTemplateCode('NO.1');
 
-        $res = Alidayu::send($message);
-        return $res;
+        return Alidayu::send($message);
     }
 }
 ```

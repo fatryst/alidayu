@@ -1,5 +1,6 @@
 {
     "name": "aliwuyun/alidayu",
+    "description": "Alidayu SMS Service SDK for PHP.",
     "license": "MIT",
     "authors": [
         {
@@ -14,5 +15,6 @@
         "psr-4": {
             "Aliwuyun\\Alidayu\\": "src"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }

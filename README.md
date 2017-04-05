@@ -50,7 +50,7 @@ class AlidayuTest
         $message = new AlibabaAliqinFcSmsNumSend;
             ->setRecNum('13888888888')
             ->setSmsParam(['number' => rand(100000, 999999)])
-            ->setSmsFreeSignName('支付吧')
+            ->setSmsFreeSignName('支付宝')
             ->setSmsTemplateCode('SMS_00000001');
         return Alidayu::send($message);
     }

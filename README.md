@@ -47,7 +47,7 @@ class AlidayuTest
 {
     public function SendSms()
     {
-        $message = (new AlibabaAliqinFcSmsNumSend)
+        $message = (new AlibabaAliqinFcSmsNumSend())
             ->setRecNum('13888888888')
             ->setSmsParam(['number' => rand(100000, 999999)])
             ->setSmsFreeSignName('支付宝')
